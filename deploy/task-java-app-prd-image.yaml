@@ -1,0 +1,16 @@
+﻿apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: java-app-prd-image
+  namespace: jroordinkbd-dev
+  resourceVersion: '3434672661'
+spec:
+  steps:
+    - computeResources: {}
+      image: 'quay.io/openshift/origin-cli:latest'
+      name: promote-image
+      script: |
+        #!/usr/bin/env sh
+        cd $(workspaces.java-source.path)
+        cd example-java-app
+        oc tag java-app:latest java-app:prd 

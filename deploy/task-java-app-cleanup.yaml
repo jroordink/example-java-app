@@ -1,0 +1,18 @@
+﻿apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: java-app-cleanup
+  namespace: jroordinkbd-dev
+  resourceVersion: '3434668454'
+spec:
+  steps:
+    - computeResources: {}
+      image: quay.io/wire/alpine-git
+      name: cleanup
+      script: |
+        #!/bin/bash
+        cd $(workspaces.java-source.path)
+        cd example-java-app
+        rm -rf example-java-app
+  workspaces:
+    - name: java-source

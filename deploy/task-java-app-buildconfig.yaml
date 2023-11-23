@@ -1,0 +1,19 @@
+﻿apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: java-app-buildconfig
+  namespace: jroordinkbd-dev
+  resourceVersion: '3434667434'
+spec:
+  steps:
+    - computeResources: {}
+      image: 'quay.io/openshift/origin-cli:latest'
+      name: start-build
+      script: |
+        #!/usr/bin/env sh
+        cd $(workspaces.java-source.path)
+        cd example-java-app
+        set -e
+        oc start-build java-app-config -n jroordinkbd-dev
+  workspaces:
+    - name: java-source

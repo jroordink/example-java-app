@@ -1,0 +1,22 @@
+﻿apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: java-app-report
+  namespace: jroordinkbd-dev
+  resourceVersion: '3435037188'
+spec:
+  steps:
+    - computeResources: {}
+      image: 'quay.io/openshift/origin-cli:latest'
+      name: report
+      script: >
+        #!/bin/bash
+
+        cd $(workspaces.java-source.path)
+
+        cd example-java-app 
+
+        oc create configmap dependency-security-report
+        --from-file=index.html=build/reports/dependency-check-report.html
+  workspaces:
+    - name: java-source

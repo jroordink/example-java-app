@@ -1,0 +1,18 @@
+﻿apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: java-app-unittest
+  namespace: jroordinkbd-dev
+  resourceVersion: '3434669057'
+spec:
+  steps:
+    - computeResources: {}
+      image: 'registry.digitalocean.com/openshiftcourse/gradle:8-jdk17'
+      name: unittest
+      script: |
+        #!/usr/bin/env sh
+        cd $(workspaces.java-source.path)
+        cd example-java-app
+        gradle test
+  workspaces:
+    - name: java-source

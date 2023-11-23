@@ -1,0 +1,19 @@
+resources:  
+  - buildconfig-java-app-config.yaml
+  - deployment-java-app.yaml
+  - eventlistener-java-app-event-listener.yaml
+  - imagestream-java-app.yaml
+  - pipeline-java-app-image-promotion.yaml
+  - pipeline-java-app-pipeline.yaml
+  - route-el-java-app-event-listener.yaml
+  - service-java-app.yaml
+  - task-java-app-build.yaml
+  - task-java-app-buildconfig.yaml
+  - task-java-app-cleanup.yaml
+  - task-java-app-dependency-analysis.yaml
+  - task-java-app-git-clone.yaml
+  - task-java-app-prd-image.yaml
+  - task-java-app-report.yaml
+  - task-java-app-unittest.yaml
+  - triggerbinding-java-app-trigger-binding.yaml
+  - triggertemplate-java-app-trigger-template.yaml

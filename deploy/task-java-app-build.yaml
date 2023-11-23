@@ -1,0 +1,18 @@
+﻿apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: java-app-build
+  namespace: jroordinkbd-dev
+  resourceVersion: '3434666047'
+spec:
+  steps:
+    - computeResources: {}
+      image: 'registry.digitalocean.com/openshiftcourse/gradle:8-jdk17'
+      name: build
+      script: |
+        #!/usr/bin/env sh
+        cd $(workspaces.java-source.path)
+        cd example-java-app
+        gradle build
+  workspaces:
+    - name: java-source

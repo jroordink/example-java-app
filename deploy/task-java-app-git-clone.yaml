@@ -1,0 +1,24 @@
+﻿apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  name: java-app-git-clone
+  namespace: jroordinkbd-dev
+  resourceVersion: '3434640406'
+spec:
+  steps:
+    - computeResources: {}
+      image: quay.io/wire/alpine-git
+      name: security-check
+      script: >
+        #!/usr/bin/env sh
+
+        cd $(workspaces.java-source.path)
+
+        git clone https://github.com/musghost/example-java-app.git
+        example-java-app
+
+        cd example-java-app
+
+        git switch main
+  workspaces:
+    - name: java-source

@@ -1,0 +1,39 @@
+﻿kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: java-app
+  namespace: jroordinkbd-dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: java-app
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: java-app
+    spec:
+      containers:
+        - name: container
+          image: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:08a637342c40819bff5df3bb9818c8563d014030c1ab3854e53944bc6551bbeb
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          resources: {}
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      schedulerName: default-scheduler
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 25%
+      maxSurge: 25%
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600

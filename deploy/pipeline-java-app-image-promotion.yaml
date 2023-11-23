@@ -1,0 +1,12 @@
+﻿apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  name: java-app-image-promotion
+  namespace: jroordinkbd-dev
+  resourceVersion: '3431646583'
+spec:
+  tasks:
+    - name: java-app-prd-image
+      taskRef:
+        kind: Task
+        name: java-app-prd-image

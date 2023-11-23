@@ -1,0 +1,10 @@
+﻿apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerBinding
+metadata:
+  name: java-app-trigger-binding
+  namespace: jroordinkbd-dev
+  resourceVersion: '3431671681'
+spec:
+  params:
+    - name: gitrevision
+      value: $(body.pull_request.head.sha)

@@ -1,0 +1,16 @@
+﻿apiVersion: triggers.tekton.dev/v1alpha1
+kind: EventListener
+metadata:
+  name: java-app-event-listener
+  namespace: jroordinkbd-dev
+spec:
+  namespaceSelector: {}
+  resources: {}
+  serviceAccountName: pipeline
+  triggers:
+    - bindings:
+        - kind: TriggerBinding
+          ref: java-app-trigger-binding
+      name: java-app-trigger
+      template:
+        ref: java-app-trigger-template

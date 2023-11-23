@@ -1,0 +1,21 @@
+﻿kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: el-java-app-event-listener
+  namespace: jroordinkbd-dev
+  labels:
+    app.kubernetes.io/managed-by: EventListener
+    app.kubernetes.io/part-of: Triggers
+    eventlistener: java-app-event-listener
+  annotations:
+    openshift.io/host.generated: 'true'
+spec:
+  host: >-
+    el-java-app-event-listener-jroordinkbd-dev.apps.sandbox-m2.ll9k.p1.openshiftapps.com
+  to:
+    kind: Service
+    name: el-java-app-event-listener
+    weight: 100
+  port:
+    targetPort: http-listener
+  wildcardPolicy: None

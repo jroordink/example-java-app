@@ -1,25 +1,9 @@
 ﻿apiVersion: tekton.dev/v1
 kind: Pipeline
 metadata:
-  creationTimestamp: '2023-11-22T10:10:34Z'
-  generation: 10
-  managedFields:
-    - apiVersion: tekton.dev/v1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          .: {}
-          'f:finally': {}
-          'f:params': {}
-          'f:tasks': {}
-          'f:workspaces': {}
-      manager: Mozilla
-      operation: Update
-      time: '2023-11-23T10:23:21Z'
   name: java-app-pipeline
   namespace: jroordinkbd-dev
   resourceVersion: '3434688148'
-  uid: a001f18b-a46a-4679-9813-f3075cd12787
 spec:
   finally:
     - name: java-app-cleanup

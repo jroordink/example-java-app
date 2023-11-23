@@ -13,7 +13,7 @@ resources:
   - task-java-app-dependency-analysis.yaml
   - task-java-app-git-clone.yaml
   - task-java-app-prd-image.yaml
-  - task-java-app-report-yaml
+  - task-java-app-report.yaml
   - task-java-app-unittest.yaml
   - triggerbinding-java-app-trigger-binding.yaml
-  - triggertemplate-java-app-trigger-template
+  - triggertemplate-java-app-trigger-template.yaml

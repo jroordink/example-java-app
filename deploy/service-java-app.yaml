@@ -3,42 +3,9 @@ apiVersion: v1
 metadata:
   name: java-app
   namespace: jroordinkbd-dev
-  uid: 2532a263-4978-4484-a2d9-d5ff13f8818d
-  resourceVersion: '3435021421'
-  creationTimestamp: '2023-11-22T11:03:45Z'
   labels:
     app: example-java-app
-  managedFields:
-    - manager: oc
-      operation: Update
-      apiVersion: v1
-      time: '2023-11-22T11:03:45Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          'f:internalTrafficPolicy': {}
-          'f:ports':
-            .: {}
-            'k:{"port":8080,"protocol":"TCP"}':
-              .: {}
-              'f:port': {}
-              'f:protocol': {}
-              'f:targetPort': {}
-          'f:selector': {}
-          'f:sessionAffinity': {}
-          'f:type': {}
-    - manager: Mozilla
-      operation: Update
-      apiVersion: v1
-      time: '2023-11-23T12:34:02Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:metadata':
-          'f:labels':
-            .: {}
-            'f:app': {}
 spec:
-  clusterIP: 172.30.186.77
   ipFamilies:
     - IPv4
   ports:
@@ -46,12 +13,8 @@ spec:
       port: 8080
       targetPort: 8080
   internalTrafficPolicy: Cluster
-  clusterIPs:
-    - 172.30.186.77
   type: ClusterIP
   ipFamilyPolicy: SingleStack
   sessionAffinity: None
   selector:
     app: java-app
-status:
-  loadBalancer: {}

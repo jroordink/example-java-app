@@ -3,42 +3,6 @@ apiVersion: build.openshift.io/v1
 metadata:
   name: java-app-config
   namespace: jroordinkbd-dev
-  uid: 6730c39e-5322-4c9f-9a2c-218229671f88
-  resourceVersion: '3434998964'
-  generation: 15
-  creationTimestamp: '2023-11-22T09:04:48Z'
-  managedFields:
-    - manager: Mozilla
-      operation: Update
-      apiVersion: build.openshift.io/v1
-      time: '2023-11-22T12:10:32Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          'f:output':
-            'f:to': {}
-          'f:runPolicy': {}
-          'f:source':
-            'f:contextDir': {}
-            'f:git':
-              .: {}
-              'f:ref': {}
-              'f:uri': {}
-            'f:type': {}
-          'f:strategy':
-            'f:dockerStrategy':
-              .: {}
-              'f:dockerfilePath': {}
-              'f:pullSecret': {}
-            'f:type': {}
-    - manager: openshift-apiserver
-      operation: Update
-      apiVersion: build.openshift.io/v1
-      time: '2023-11-23T12:25:31Z'
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:status':
-          'f:lastVersion': {}
 spec:
   nodeSelector: null
   output:
@@ -62,5 +26,3 @@ spec:
       ref: main
     contextDir: /
   runPolicy: Serial
-status:
-  lastVersion: 13

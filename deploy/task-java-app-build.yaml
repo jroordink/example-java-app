@@ -1,30 +1,9 @@
 ﻿apiVersion: tekton.dev/v1
 kind: Task
 metadata:
-  creationTimestamp: '2023-11-22T09:50:08Z'
-  generation: 5
-  managedFields:
-    - apiVersion: tekton.dev/v1beta1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          .: {}
-          'f:workspaces': {}
-      manager: Mozilla
-      operation: Update
-      time: '2023-11-22T09:50:08Z'
-    - apiVersion: tekton.dev/v1
-      fieldsType: FieldsV1
-      fieldsV1:
-        'f:spec':
-          'f:steps': {}
-      manager: Mozilla
-      operation: Update
-      time: '2023-11-23T10:14:49Z'
   name: java-app-build
   namespace: jroordinkbd-dev
   resourceVersion: '3434666047'
-  uid: fe66d077-a6fa-4e06-a87e-2acb0c75a3a2
 spec:
   steps:
     - computeResources: {}

@@ -1,0 +1,42 @@
+﻿apiVersion: triggers.tekton.dev/v1alpha1
+kind: TriggerTemplate
+metadata:
+  creationTimestamp: '2023-11-22T12:29:45Z'
+  generation: 2
+  managedFields:
+    - apiVersion: triggers.tekton.dev/v1alpha1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          .: {}
+          'f:params': {}
+          'f:resourcetemplates': {}
+      manager: Mozilla
+      operation: Update
+      time: '2023-11-22T12:43:45Z'
+  name: java-app-trigger-template
+  namespace: jroordinkbd-dev
+  resourceVersion: '3431507091'
+  uid: a4d6dfd7-9699-4e48-bde2-f7fcfb483109
+spec:
+  params:
+    - default: main
+      description: The git revision
+      name: gitrevision
+  resourcetemplates:
+    - apiVersion: tekton.dev/v1beta1
+      kind: PipelineRun
+      metadata:
+        generateName: java-app-pipeline-run-
+      spec:
+        params:
+          - name: repo-url
+            value: 'https://github.com/jroordink/example-java-app.git'
+          - name: revision
+            value: main
+        pipelineRef:
+          name: java-app-pipeline
+        workspaces:
+          - name: shared-workspace
+            persistentVolumeClaim:
+              claimName: shared-workspace-pvc2

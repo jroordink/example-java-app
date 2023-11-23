@@ -1,0 +1,86 @@
+﻿apiVersion: tekton.dev/v1
+kind: Pipeline
+metadata:
+  creationTimestamp: '2023-11-22T10:10:34Z'
+  generation: 10
+  managedFields:
+    - apiVersion: tekton.dev/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          .: {}
+          'f:finally': {}
+          'f:params': {}
+          'f:tasks': {}
+          'f:workspaces': {}
+      manager: Mozilla
+      operation: Update
+      time: '2023-11-23T10:23:21Z'
+  name: java-app-pipeline
+  namespace: jroordinkbd-dev
+  resourceVersion: '3434688148'
+  uid: a001f18b-a46a-4679-9813-f3075cd12787
+spec:
+  finally:
+    - name: java-app-cleanup
+      taskRef:
+        kind: Task
+        name: java-app-cleanup
+      workspaces:
+        - name: java-source
+          workspace: shared-workspace
+  tasks:
+    - name: java-app-git-clone
+      taskRef:
+        kind: Task
+        name: java-app-git-clone
+      workspaces:
+        - name: java-source
+          workspace: shared-workspace
+    - name: java-app-build
+      runAfter:
+        - java-app-git-clone
+      taskRef:
+        kind: Task
+        name: java-app-build
+      workspaces:
+        - name: java-source
+          workspace: shared-workspace
+    - name: java-app-unittest
+      runAfter:
+        - java-app-build
+      taskRef:
+        kind: Task
+        name: java-app-unittest
+      workspaces:
+        - name: java-source
+          workspace: shared-workspace
+    - name: java-app-buildconfig
+      runAfter:
+        - java-app-unittest
+      taskRef:
+        kind: Task
+        name: java-app-buildconfig
+      workspaces:
+        - name: java-source
+          workspace: shared-workspace
+    - name: java-app-dependency-analysis
+      runAfter:
+        - java-app-buildconfig
+      taskRef:
+        kind: Task
+        name: java-app-dependency-analysis
+      workspaces:
+        - name: java-source
+          workspace: shared-workspace
+    - name: java-app-report
+      runAfter:
+        - java-app-dependency-analysis
+      taskRef:
+        kind: Task
+        name: java-app-report
+      workspaces:
+        - name: java-source
+          workspace: shared-workspace
+  workspaces:
+    - name: shared-workspace

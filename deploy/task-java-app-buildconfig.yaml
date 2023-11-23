@@ -1,0 +1,33 @@
+﻿apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  creationTimestamp: '2023-11-22T10:42:12Z'
+  generation: 4
+  managedFields:
+    - apiVersion: tekton.dev/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          .: {}
+          'f:steps': {}
+          'f:workspaces': {}
+      manager: Mozilla
+      operation: Update
+      time: '2023-11-23T10:15:07Z'
+  name: java-app-buildconfig
+  namespace: jroordinkbd-dev
+  resourceVersion: '3434667434'
+  uid: f44d873c-9c4d-4381-b29d-42c7ff59762f
+spec:
+  steps:
+    - computeResources: {}
+      image: 'quay.io/openshift/origin-cli:latest'
+      name: start-build
+      script: |
+        #!/usr/bin/env sh
+        cd $(workspaces.java-source.path)
+        cd example-java-app
+        set -e
+        oc start-build java-app-config -n jroordinkbd-dev
+  workspaces:
+    - name: java-source

@@ -1,0 +1,32 @@
+﻿apiVersion: tekton.dev/v1
+kind: Task
+metadata:
+  creationTimestamp: '2023-11-23T08:39:54Z'
+  generation: 4
+  managedFields:
+    - apiVersion: tekton.dev/v1
+      fieldsType: FieldsV1
+      fieldsV1:
+        'f:spec':
+          .: {}
+          'f:steps': {}
+          'f:workspaces': {}
+      manager: Mozilla
+      operation: Update
+      time: '2023-11-23T10:15:30Z'
+  name: java-app-cleanup
+  namespace: jroordinkbd-dev
+  resourceVersion: '3434668454'
+  uid: d2851319-7630-4cf1-a1bc-4d167be0d8a5
+spec:
+  steps:
+    - computeResources: {}
+      image: quay.io/wire/alpine-git
+      name: cleanup
+      script: |
+        #!/bin/bash
+        cd $(workspaces.java-source.path)
+        cd example-java-app
+        rm -rf example-java-app
+  workspaces:
+    - name: java-source

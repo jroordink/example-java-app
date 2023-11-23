@@ -1,0 +1,105 @@
+﻿kind: ImageStream
+apiVersion: image.openshift.io/v1
+metadata:
+  name: java-app
+  namespace: jroordinkbd-dev
+  uid: 5eea47f9-8386-4c74-ad15-e57ec35e4c31
+  resourceVersion: '3435006906'
+  generation: 3
+  creationTimestamp: '2023-11-22T08:33:18Z'
+spec:
+  lookupPolicy:
+    local: true
+  tags:
+    - name: prd
+      annotations: null
+      from:
+        kind: ImageStreamImage
+        name: >-
+          java-app@sha256:c9e1f946ed1f9636721f76921febb93043666cd3d77d5c4f2b2c2fd41399e6ce
+      generation: 3
+      importPolicy:
+        importMode: Legacy
+      referencePolicy:
+        type: Source
+status:
+  dockerImageRepository: 'image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app'
+  publicDockerImageRepository: >-
+    default-route-openshift-image-registry.apps.sandbox-m2.ll9k.p1.openshiftapps.com/jroordinkbd-dev/java-app
+  tags:
+    - tag: latest
+      items:
+        - created: '2023-11-23T12:28:32Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:08a637342c40819bff5df3bb9818c8563d014030c1ab3854e53944bc6551bbeb
+          image: >-
+            sha256:08a637342c40819bff5df3bb9818c8563d014030c1ab3854e53944bc6551bbeb
+          generation: 3
+        - created: '2023-11-23T10:59:14Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:1115388a09b019546353215d2a54a8a5cf51c070a04f2ca4dd14b3827e3d7980
+          image: >-
+            sha256:1115388a09b019546353215d2a54a8a5cf51c070a04f2ca4dd14b3827e3d7980
+          generation: 3
+        - created: '2023-11-23T10:45:18Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:1a7bfcc8df6453637c8ab55051e8dccc6268f562b3a44c27b5a1f08e2eb4ff7c
+          image: >-
+            sha256:1a7bfcc8df6453637c8ab55051e8dccc6268f562b3a44c27b5a1f08e2eb4ff7c
+          generation: 3
+        - created: '2023-11-23T10:31:51Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:767d89f616d62fe5efafcd566cfaf2eb981fa92900a81b7f044e68ca6881dad8
+          image: >-
+            sha256:767d89f616d62fe5efafcd566cfaf2eb981fa92900a81b7f044e68ca6881dad8
+          generation: 3
+        - created: '2023-11-23T09:49:24Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:61d2581540828bb2b708a7c757369d502f098dbee41196fa9d0c7b9d4fac6672
+          image: >-
+            sha256:61d2581540828bb2b708a7c757369d502f098dbee41196fa9d0c7b9d4fac6672
+          generation: 3
+        - created: '2023-11-23T09:36:58Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:a77abde81cd066220bb81e0397803fffff247d6f3d0f868866eb67fa4c56ba2a
+          image: >-
+            sha256:a77abde81cd066220bb81e0397803fffff247d6f3d0f868866eb67fa4c56ba2a
+          generation: 3
+        - created: '2023-11-23T09:26:50Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:84532924a8aee0590925ec7ef819a4a2da1e47653e55a3aff106eaa050c793da
+          image: >-
+            sha256:84532924a8aee0590925ec7ef819a4a2da1e47653e55a3aff106eaa050c793da
+          generation: 3
+        - created: '2023-11-23T08:57:39Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:84bd6eb946797da1a84e89c1c9244077b1b6df9e47b22359493bf1d7fa3cdb3b
+          image: >-
+            sha256:84bd6eb946797da1a84e89c1c9244077b1b6df9e47b22359493bf1d7fa3cdb3b
+          generation: 3
+        - created: '2023-11-22T14:05:58Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:c9e1f946ed1f9636721f76921febb93043666cd3d77d5c4f2b2c2fd41399e6ce
+          image: >-
+            sha256:c9e1f946ed1f9636721f76921febb93043666cd3d77d5c4f2b2c2fd41399e6ce
+          generation: 2
+        - created: '2023-11-22T14:03:22Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:c8795edbe5eca8ccf0585d7a9c482117449bef4352bb882700e291592523971c
+          image: >-
+            sha256:c8795edbe5eca8ccf0585d7a9c482117449bef4352bb882700e291592523971c
+          generation: 2
+        - created: '2023-11-22T10:57:00Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:c5c77e9f19a4b16120a0677500442d42a5fd6fe9d004f545f111574e552bdfa9
+          image: >-
+            sha256:c5c77e9f19a4b16120a0677500442d42a5fd6fe9d004f545f111574e552bdfa9
+          generation: 1
+    - tag: prd
+      items:
+        - created: '2023-11-23T08:26:46Z'
+          dockerImageReference: >-
+            image-registry.openshift-image-registry.svc:5000/jroordinkbd-dev/java-app@sha256:c9e1f946ed1f9636721f76921febb93043666cd3d77d5c4f2b2c2fd41399e6ce
+          image: >-
+            sha256:c9e1f946ed1f9636721f76921febb93043666cd3d77d5c4f2b2c2fd41399e6ce
+          generation: 3
